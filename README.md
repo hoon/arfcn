@@ -1,6 +1,6 @@
-# ARFCN - Absolute Radio Frequency Channel Number Utilities
+# ARFCN - Absolute Radio-Frequency Channel Number Tools
 
-A TypeScript/JavaScript library for working with Absolute Radio Frequency Channel Numbers (ARFCN) used in cellular network standards. This package provides utilities for converting between ARFCN values and frequencies, and mapping between frequencies and bands for both NR (5G) and E-UTRA (4G LTE) technologies.
+A TypeScript/JavaScript library for working with absolute radio-frequency channel numbers (ARFCN) used in cellular network standards. This package provides utilities for converting between ARFCN values and frequencies, and mapping between frequencies and bands for both 5G NR (5G) and E-UTRA (4G LTE) technologies.
 
 ## Installation
 
@@ -115,6 +115,10 @@ console.log(NrArfcnBands.table_names)
 //    'Table 5.4.2.3-4: Applicable NR-ARFCN per operating band for enhanced channel raster',
 //  ]
 ```
+
+## Credit
+
+(c) 2025 Hoon Choi. 3GPP data structures inspired by [@blevic](https://github.com/blevic)'s [nrarfcn](https://github.com/blevic/nrarfcn) pip package.
 
 ## License
 
