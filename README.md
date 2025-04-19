@@ -1,4 +1,4 @@
-# ARFCN - Absolute Radio-Frequency Channel Number Tools
+# arfcn - Absolute Radio-Frequency Channel Number Tools
 
 A TypeScript/JavaScript library for working with absolute radio-frequency channel numbers (ARFCN) used in cellular network standards. This package provides utilities for converting between ARFCN values and frequencies, and mapping between frequencies and bands for both 5G NR (5G) and E-UTRA (4G LTE) technologies.
 
@@ -30,9 +30,13 @@ import {
 } from 'arfcn'
 
 // Convert NR-ARFCN to frequency in MHz
-const frequency = nrArfcnToFrequency(620000)
+const frequency1 = nrArfcnToFrequency(620000)
 // 3300
 console.log(`NR-ARFCN 620000 corresponds to ${frequency} MHz`)
+
+// invalid NR-ARFCN input returns -1
+const frequency2 = nrArfcnToFrequency(-500))
+// -1
 
 // Find which NR bands a frequency belongs to
 const bands1 = frequencyToNrBands(3600)
@@ -47,12 +51,15 @@ console.log(
 )
 
 // Find which NR band an ARFCN belongs to
-const band3 = nrArfcnToBand(620000)
-console.log(`NR-ARFCN 620000 belongs to band ${band3}`)
+const bands3 = nrArfcnToBands(620000)
+// [77, 78]
+console.log(`NR-ARFCN 620000 belongs to bands: ${bands3}`)
+
 
 // Find which NR band an ARFCN belongs to with link direction
-const band4 = nrArfcnToBand(381470, LinkDirection.Uplink)
-console.log(`NR-ARFCN 381470 in uplink belongs to band ${band4}`)
+const bands4 = nrArfcnToBands(381470, LinkDirection.Uplink)
+// [2, 25, 39, 98, 101]
+console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`)
 
 // Convert frequency to NR-ARFCN
 const nrArfcn = frequencyToNrArfcn(3479.52)

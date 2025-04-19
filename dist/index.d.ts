@@ -84,12 +84,12 @@ declare enum LinkDirection {
     Uplink = 1,
     Unspecified = 2
 }
-declare function nrArfcnToFrequency(nrArfcn: number): number | undefined;
+declare function nrArfcnToFrequency(nrArfcn: number): number;
 declare function frequencyToNrBands(frequencyMhz: number, direction?: LinkDirection): number[];
-declare function nrArfcnToBand(nrArfcn: number, direction?: LinkDirection): number[];
+declare function nrArfcnToBands(nrArfcn: number, direction?: LinkDirection): number[];
 declare function frequencyToNrArfcn(frequencyMhz: number, roundNumber?: boolean): number;
-declare function earfcnToFrequency(earfcn: number): number | null;
+declare function earfcnToFrequency(earfcn: number): number;
 declare function frequencyToEutraBands(frequencyMhz: number, direction?: LinkDirection): number[];
-declare function earfcnToBand(earfcn: number): number | null;
+declare function earfcnToBand(earfcn: number): number;
 
-export { type EutraBandRow, EutraBands, type EutraBandsObj, type NrArfcnBandRow, NrArfcnBands, type NrArfcnBandsObj, type NrArfcnParamObj, type NrArfcnParamRow, NrArfcnParameters, type NrBandRow, NrBands, type NrBandsObj, earfcnToBand, earfcnToFrequency, frequencyToEutraBands, frequencyToNrArfcn, frequencyToNrBands, nrArfcnToBand, nrArfcnToFrequency };
+export { type EutraBandRow, EutraBands, type EutraBandsObj, type NrArfcnBandRow, NrArfcnBands, type NrArfcnBandsObj, type NrArfcnParamObj, type NrArfcnParamRow, NrArfcnParameters, type NrBandRow, NrBands, type NrBandsObj, earfcnToBand, earfcnToFrequency, frequencyToEutraBands, frequencyToNrArfcn, frequencyToNrBands, nrArfcnToBands as nrArfcnToBand, nrArfcnToFrequency };

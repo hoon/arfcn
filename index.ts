@@ -34,7 +34,7 @@ export {
 export {
   nrArfcnToFrequency,
   frequencyToNrBands,
-  nrArfcnToBand,
+  nrArfcnToBands as nrArfcnToBand,
   earfcnToFrequency,
   frequencyToEutraBands,
   earfcnToBand,

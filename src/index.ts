@@ -26,7 +26,7 @@ export type { EutraBandRow, EutraBandsObj } from './EutraBands'
 export {
   nrArfcnToFrequency,
   frequencyToNrBands,
-  nrArfcnToBand,
+  nrArfcnToBands as nrArfcnToBand,
   frequencyToNrArfcn,
   earfcnToFrequency,
   frequencyToEutraBands,

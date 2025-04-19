@@ -1,7 +1,7 @@
 import {
   nrArfcnToFrequency,
   frequencyToNrBands,
-  nrArfcnToBand,
+  nrArfcnToBands,
   earfcnToFrequency,
   earfcnToBand,
   frequencyToEutraBands,
@@ -55,45 +55,45 @@ describe('NR-ARFCN Functions', () => {
 
   describe('nrArfcnToBand', () => {
     test('should find correct band for NR-ARFCN 397470', () => {
-      const bands = nrArfcnToBand(397470)
+      const bands = nrArfcnToBands(397470)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([2, 25]))
     })
 
     test('should find correct band for NR-ARFCN 631968', () => {
-      const bands = nrArfcnToBand(631968)
+      const bands = nrArfcnToBands(631968)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([77, 78]))
     })
 
     test('should return empty array for invalid NR-ARFCN values', () => {
-      expect(nrArfcnToBand(-1)).toEqual([])
-      expect(nrArfcnToBand(3300000)).toEqual([])
+      expect(nrArfcnToBands(-1)).toEqual([])
+      expect(nrArfcnToBands(3300000)).toEqual([])
     })
   })
 
   describe('nrArfcnToBand directional', () => {
     test('should find correct band for NR-ARFCN 397470 with Downlink direction', () => {
-      const bands = nrArfcnToBand(397470, LinkDirection.Downlink)
+      const bands = nrArfcnToBands(397470, LinkDirection.Downlink)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([2, 25]))
       expect(bands).toEqual(expect.not.arrayContaining([65]))
     })
     test('should find correct band for NR-ARFCN 397470 with Uplink direction', () => {
-      const bands = nrArfcnToBand(397470, LinkDirection.Uplink)
+      const bands = nrArfcnToBands(397470, LinkDirection.Uplink)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([65]))
       expect(bands).toEqual(expect.not.arrayContaining([2, 25]))
     })
 
     test('should find correct band for NR-ARFCN 631968 with Downlink direction', () => {
-      const bands = nrArfcnToBand(631968, LinkDirection.Downlink)
+      const bands = nrArfcnToBands(631968, LinkDirection.Downlink)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([77, 78]))
     })
 
     test('should find correct band for NR-ARFCN 631968 with Uplink direction', () => {
-      const bands = nrArfcnToBand(631968, LinkDirection.Uplink)
+      const bands = nrArfcnToBands(631968, LinkDirection.Uplink)
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual(expect.arrayContaining([77, 78]))
     })
@@ -196,9 +196,9 @@ describe('EARFCN Functions', () => {
       expect(frequency).toEqual(2147.5)
     })
 
-    test('should return null for invalid EARFCN values', () => {
-      expect(earfcnToFrequency(-1)).toBeNull()
-      expect(earfcnToFrequency(300000)).toBeNull()
+    test('should return -1 for invalid EARFCN values', () => {
+      expect(earfcnToFrequency(-1)).toEqual(-1)
+      expect(earfcnToFrequency(300000)).toEqual(-1)
     })
   })
 
@@ -234,9 +234,9 @@ describe('EARFCN Functions', () => {
       expect(band).toBe(1) // 2140 MHz b1
     })
 
-    test('should return null for invalid EARFCN values', () => {
-      expect(earfcnToBand(-1)).toBeNull()
-      expect(earfcnToBand(300000)).toBeNull()
+    test('should return -1 for invalid EARFCN values', () => {
+      expect(earfcnToBand(-1)).toEqual(-1)
+      expect(earfcnToBand(300000)).toEqual(-1)
     })
   })
 })

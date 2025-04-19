@@ -9,7 +9,7 @@ export enum LinkDirection {
   Unspecified,
 }
 
-export function nrArfcnToFrequency(nrArfcn: number) {
+export function nrArfcnToFrequency(nrArfcn: number): number {
   if (nrArfcn < 0 || nrArfcn > 3279165) {
     return -1
   }
@@ -27,12 +27,13 @@ export function nrArfcnToFrequency(nrArfcn: number) {
       return freq_mhz
     }
   }
+  return -1
 }
 
 export function frequencyToNrBands(
   frequencyMhz: number,
   direction: LinkDirection = LinkDirection.Unspecified
-) {
+): number[] {
   const k = NrBands.rows
     .filter((_band) => {
       let matchDl,
@@ -65,10 +66,10 @@ export function frequencyToNrBands(
   return k
 }
 
-export function nrArfcnToBand(
+export function nrArfcnToBands(
   nrArfcn: number,
   direction: LinkDirection = LinkDirection.Unspecified
-) {
+): number[] {
   const bands = NrArfcnBands.rows
     .filter((_r) => {
       let dl = false
@@ -110,7 +111,7 @@ export function nrArfcnToBand(
 export function frequencyToNrArfcn(
   frequencyMhz: number,
   roundNumber: boolean = false
-) {
+): number {
   if (Number.isNaN(frequencyMhz) || frequencyMhz < 0 || frequencyMhz > 100000) {
     return -1
   }
@@ -133,7 +134,7 @@ export function frequencyToNrArfcn(
   return -1
 }
 
-export function earfcnToFrequency(earfcn: number) {
+export function earfcnToFrequency(earfcn: number): number {
   // 3GPP TS 36.101 V18.7.0 (2024-09)
   // 5.7.3 Carrier frequency and EARFCN
 
@@ -161,7 +162,7 @@ export function earfcnToFrequency(earfcn: number) {
     return match[0].f_dl_lo! + 0.1 * (earfcn - match[0].n_offs_dl!)
   }
 
-  return null
+  return -1
 }
 
 export function frequencyToEutraBands(
@@ -197,7 +198,7 @@ export function frequencyToEutraBands(
   return k
 }
 
-export function earfcnToBand(earfcn: number): number | null {
+export function earfcnToBand(earfcn: number): number {
   for (const _r of EutraBands.rows) {
     if (_r.n_dl_lo != null && _r.n_dl_hi != null) {
       if (earfcn >= _r.n_dl_lo && earfcn <= _r.n_dl_hi) {
@@ -210,5 +211,12 @@ export function earfcnToBand(earfcn: number): number | null {
       }
     }
   }
-  return null
+  return -1
 }
+
+const bands3 = nrArfcnToBands(620000)
+console.log(`NR-ARFCN 620000 belongs to bands: ${bands3}`)
+
+// Find which NR band an ARFCN belongs to with link direction
+const bands4 = nrArfcnToBands(381470, LinkDirection.Uplink)
+console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`)

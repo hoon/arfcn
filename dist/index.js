@@ -3654,6 +3654,7 @@ function nrArfcnToFrequency(nrArfcn) {
       return freq_mhz;
     }
   }
+  return -1;
 }
 function frequencyToNrBands(frequencyMhz, direction = 2 /* Unspecified */) {
   const k = NrBands.rows.filter((_band) => {
@@ -3671,7 +3672,7 @@ function frequencyToNrBands(frequencyMhz, direction = 2 /* Unspecified */) {
   }).map((_band) => _band.band);
   return k;
 }
-function nrArfcnToBand(nrArfcn, direction = 2 /* Unspecified */) {
+function nrArfcnToBands(nrArfcn, direction = 2 /* Unspecified */) {
   const bands = NrArfcnBands.rows.filter((_r) => {
     let dl = false;
     if (direction === 0 /* Downlink */ || direction === 2 /* Unspecified */) {
@@ -3710,7 +3711,7 @@ function earfcnToFrequency(earfcn) {
   if (match.length > 0 && match[0]) {
     return match[0].f_dl_lo + 0.1 * (earfcn - match[0].n_offs_dl);
   }
-  return null;
+  return -1;
 }
 function frequencyToEutraBands(frequencyMhz, direction = 2 /* Unspecified */) {
   const k = EutraBands.rows.filter((_band) => {
@@ -3738,8 +3739,12 @@ function earfcnToBand(earfcn) {
       }
     }
   }
-  return null;
+  return -1;
 }
+var bands3 = nrArfcnToBands(62e4);
+console.log(`NR-ARFCN 620000 belongs to bands: ${bands3}`);
+var bands4 = nrArfcnToBands(381470, 1 /* Uplink */);
+console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`);
 export {
   EutraBands,
   NrArfcnBands,
@@ -3750,6 +3755,6 @@ export {
   frequencyToEutraBands,
   frequencyToNrArfcn,
   frequencyToNrBands,
-  nrArfcnToBand,
+  nrArfcnToBands as nrArfcnToBand,
   nrArfcnToFrequency
 };
