@@ -3755,6 +3755,6 @@ export {
   frequencyToEutraBands,
   frequencyToNrArfcn,
   frequencyToNrBands,
-  nrArfcnToBands as nrArfcnToBand,
+  nrArfcnToBands,
   nrArfcnToFrequency
 };

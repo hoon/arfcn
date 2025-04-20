@@ -92,4 +92,4 @@ declare function earfcnToFrequency(earfcn: number): number;
 declare function frequencyToEutraBands(frequencyMhz: number, direction?: LinkDirection): number[];
 declare function earfcnToBand(earfcn: number): number;
 
-export { type EutraBandRow, EutraBands, type EutraBandsObj, type NrArfcnBandRow, NrArfcnBands, type NrArfcnBandsObj, type NrArfcnParamObj, type NrArfcnParamRow, NrArfcnParameters, type NrBandRow, NrBands, type NrBandsObj, earfcnToBand, earfcnToFrequency, frequencyToEutraBands, frequencyToNrArfcn, frequencyToNrBands, nrArfcnToBands as nrArfcnToBand, nrArfcnToFrequency };
+export { type EutraBandRow, EutraBands, type EutraBandsObj, type NrArfcnBandRow, NrArfcnBands, type NrArfcnBandsObj, type NrArfcnParamObj, type NrArfcnParamRow, NrArfcnParameters, type NrBandRow, NrBands, type NrBandsObj, earfcnToBand, earfcnToFrequency, frequencyToEutraBands, frequencyToNrArfcn, frequencyToNrBands, nrArfcnToBands, nrArfcnToFrequency };

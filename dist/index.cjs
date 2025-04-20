@@ -29,7 +29,7 @@ __export(index_exports, {
   frequencyToEutraBands: () => frequencyToEutraBands,
   frequencyToNrArfcn: () => frequencyToNrArfcn,
   frequencyToNrBands: () => frequencyToNrBands,
-  nrArfcnToBand: () => nrArfcnToBands,
+  nrArfcnToBands: () => nrArfcnToBands,
   nrArfcnToFrequency: () => nrArfcnToFrequency
 });
 module.exports = __toCommonJS(index_exports);
@@ -3792,6 +3792,6 @@ console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`);
   frequencyToEutraBands,
   frequencyToNrArfcn,
   frequencyToNrBands,
-  nrArfcnToBand,
+  nrArfcnToBands,
   nrArfcnToFrequency
 });
