@@ -213,10 +213,3 @@ export function earfcnToBand(earfcn: number): number {
   }
   return -1
 }
-
-const bands3 = nrArfcnToBands(620000)
-console.log(`NR-ARFCN 620000 belongs to bands: ${bands3}`)
-
-// Find which NR band an ARFCN belongs to with link direction
-const bands4 = nrArfcnToBands(381470, LinkDirection.Uplink)
-console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`)

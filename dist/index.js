@@ -3741,10 +3741,6 @@ function earfcnToBand(earfcn) {
   }
   return -1;
 }
-var bands3 = nrArfcnToBands(62e4);
-console.log(`NR-ARFCN 620000 belongs to bands: ${bands3}`);
-var bands4 = nrArfcnToBands(381470, 1 /* Uplink */);
-console.log(`NR-ARFCN 381470 in uplink belongs to bands: ${bands4}`);
 export {
   EutraBands,
   NrArfcnBands,
