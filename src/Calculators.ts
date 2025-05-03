@@ -10,7 +10,9 @@ export enum LinkDirection {
 }
 
 export function nrArfcnToFrequency(nrArfcn: number): number {
-  if (nrArfcn < 0 || nrArfcn > 3279165) {
+  // NR-ARFCN range is defined to be [0 ... 3279165] in
+  // 3GPP TS 38.104 V18.8.0 (2024-12), Section 5.4.2.1
+  if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
     return -1
   }
 
@@ -34,6 +36,16 @@ export function frequencyToNrBands(
   frequencyMhz: number,
   direction: LinkDirection = LinkDirection.Unspecified
 ): number[] {
+  // NR global frequency raster is defined for all frequencies between 0 and 100 GHz
+  // as per 3GPP TS 38.104 V18.8.0 (2024-12), Section 5.4.2.1
+  if (
+    !Number.isFinite(frequencyMhz) ||
+    frequencyMhz < 0 ||
+    frequencyMhz > 100000
+  ) {
+    return []
+  }
+
   const k = NrBands.rows
     .filter((_band) => {
       let matchDl,
@@ -70,6 +82,10 @@ export function nrArfcnToBands(
   nrArfcn: number,
   direction: LinkDirection = LinkDirection.Unspecified
 ): number[] {
+  if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
+    return []
+  }
+
   const bands = NrArfcnBands.rows
     .filter((_r) => {
       let dl = false
@@ -112,7 +128,11 @@ export function frequencyToNrArfcn(
   frequencyMhz: number,
   roundNumber: boolean = false
 ): number {
-  if (Number.isNaN(frequencyMhz) || frequencyMhz < 0 || frequencyMhz > 100000) {
+  if (
+    !Number.isFinite(frequencyMhz) ||
+    frequencyMhz < 0 ||
+    frequencyMhz > 100000
+  ) {
     return -1
   }
 
@@ -147,6 +167,13 @@ export function earfcnToFrequency(earfcn: number): number {
   // in the parameters. However, we have to keep track of which direction
   // matched to know which formula to use to calculate the frequency.
 
+  // EARFCN range defined to be [0 ... 262143] in
+  // 3GPP TS 36.101 V19.0.1 (2024-12),
+  // Section 5.7.3 - Carrier frequency and EARFCN
+  if (!Number.isFinite(earfcn) || earfcn < 0 || earfcn > 262143) {
+    return -1
+  }
+
   const match = EutraBands.rows.filter((_r) => {
     // using != null because n_dl_lo can be converted to false if it's 0
     // and 0 is a valid EARFCN value
@@ -169,13 +196,17 @@ export function frequencyToEutraBands(
   frequencyMhz: number,
   direction: LinkDirection = LinkDirection.Unspecified
 ): number[] {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0) {
+    return []
+  }
+
   const k = EutraBands.rows
     .filter((_band) => {
       let matchDl,
         matchUl = false
       if (
-        (direction == LinkDirection.Downlink ||
-          direction == LinkDirection.Unspecified) &&
+        (direction === LinkDirection.Downlink ||
+          direction === LinkDirection.Unspecified) &&
         _band.f_dl_lo &&
         _band.f_dl_hi
       ) {
@@ -183,8 +214,8 @@ export function frequencyToEutraBands(
       }
 
       if (
-        (direction == LinkDirection.Uplink ||
-          direction == LinkDirection.Unspecified) &&
+        (direction === LinkDirection.Uplink ||
+          direction === LinkDirection.Unspecified) &&
         _band.f_ul_lo &&
         _band.f_ul_hi
       ) {
@@ -199,6 +230,10 @@ export function frequencyToEutraBands(
 }
 
 export function earfcnToBand(earfcn: number): number {
+  if (!Number.isFinite(earfcn) || earfcn < 0) {
+    return -1
+  }
+
   for (const _r of EutraBands.rows) {
     if (_r.n_dl_lo != null && _r.n_dl_hi != null) {
       if (earfcn >= _r.n_dl_lo && earfcn <= _r.n_dl_hi) {

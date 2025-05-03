@@ -3640,7 +3640,7 @@ var EutraBands = {
 
 // src/Calculators.ts
 function nrArfcnToFrequency(nrArfcn) {
-  if (nrArfcn < 0 || nrArfcn > 3279165) {
+  if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
     return -1;
   }
   for (let i = 0; i < NrArfcnParameters.rows.length++; i++) {
@@ -3657,6 +3657,9 @@ function nrArfcnToFrequency(nrArfcn) {
   return -1;
 }
 function frequencyToNrBands(frequencyMhz, direction = 2 /* Unspecified */) {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0 || frequencyMhz > 1e5) {
+    return [];
+  }
   const k = NrBands.rows.filter((_band) => {
     let matchDl, matchUl = false;
     if ((direction == 0 /* Downlink */ || direction == 2 /* Unspecified */) && _band.f_dl_lo != null && _band.f_dl_hi != null) {
@@ -3673,6 +3676,9 @@ function frequencyToNrBands(frequencyMhz, direction = 2 /* Unspecified */) {
   return k;
 }
 function nrArfcnToBands(nrArfcn, direction = 2 /* Unspecified */) {
+  if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
+    return [];
+  }
   const bands = NrArfcnBands.rows.filter((_r) => {
     let dl = false;
     if (direction === 0 /* Downlink */ || direction === 2 /* Unspecified */) {
@@ -3693,7 +3699,7 @@ function nrArfcnToBands(nrArfcn, direction = 2 /* Unspecified */) {
   return Array.from(new Set(bands));
 }
 function frequencyToNrArfcn(frequencyMhz, roundNumber = false) {
-  if (Number.isNaN(frequencyMhz) || frequencyMhz < 0 || frequencyMhz > 1e5) {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0 || frequencyMhz > 1e5) {
     return -1;
   }
   for (const _param of NrArfcnParameters.rows) {
@@ -3705,6 +3711,9 @@ function frequencyToNrArfcn(frequencyMhz, roundNumber = false) {
   return -1;
 }
 function earfcnToFrequency(earfcn) {
+  if (!Number.isFinite(earfcn) || earfcn < 0 || earfcn > 262143) {
+    return -1;
+  }
   const match = EutraBands.rows.filter((_r) => {
     return _r.n_dl_lo != null && _r.n_dl_lo <= earfcn && _r.n_dl_hi != null && _r.n_dl_hi >= earfcn;
   });
@@ -3714,12 +3723,15 @@ function earfcnToFrequency(earfcn) {
   return -1;
 }
 function frequencyToEutraBands(frequencyMhz, direction = 2 /* Unspecified */) {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0) {
+    return [];
+  }
   const k = EutraBands.rows.filter((_band) => {
     let matchDl, matchUl = false;
-    if ((direction == 0 /* Downlink */ || direction == 2 /* Unspecified */) && _band.f_dl_lo && _band.f_dl_hi) {
+    if ((direction === 0 /* Downlink */ || direction === 2 /* Unspecified */) && _band.f_dl_lo && _band.f_dl_hi) {
       matchDl = frequencyMhz >= _band.f_dl_lo && frequencyMhz <= _band.f_dl_hi;
     }
-    if ((direction == 1 /* Uplink */ || direction == 2 /* Unspecified */) && _band.f_ul_lo && _band.f_ul_hi) {
+    if ((direction === 1 /* Uplink */ || direction === 2 /* Unspecified */) && _band.f_ul_lo && _band.f_ul_hi) {
       matchUl = frequencyMhz >= _band.f_ul_lo && frequencyMhz <= _band.f_ul_hi;
     }
     return matchDl || matchUl;
@@ -3727,6 +3739,9 @@ function frequencyToEutraBands(frequencyMhz, direction = 2 /* Unspecified */) {
   return k;
 }
 function earfcnToBand(earfcn) {
+  if (!Number.isFinite(earfcn) || earfcn < 0) {
+    return -1;
+  }
   for (const _r of EutraBands.rows) {
     if (_r.n_dl_lo != null && _r.n_dl_hi != null) {
       if (earfcn >= _r.n_dl_lo && earfcn <= _r.n_dl_hi) {

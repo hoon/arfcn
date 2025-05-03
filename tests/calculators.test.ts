@@ -25,9 +25,16 @@ describe('NR-ARFCN Functions', () => {
       expect(frequency).toEqual(3479.52)
     })
 
-    test('should return -1 for invalid NR-ARFCN values', () => {
+    test('should return -1 for invalid numeric NR-ARFCN values', () => {
       expect(nrArfcnToFrequency(-1)).toBe(-1)
       expect(nrArfcnToFrequency(3300000)).toBe(-1)
+    })
+
+    test('should return -1 for non-numeric NR-ARFCN values', () => {
+      expect(nrArfcnToFrequency('test' as unknown as number)).toBe(-1)
+      expect(nrArfcnToFrequency('' as unknown as number)).toBe(-1)
+      expect(nrArfcnToFrequency(null as unknown as number)).toBe(-1)
+      expect(nrArfcnToFrequency(undefined as unknown as number)).toBe(-1)
     })
   })
 
@@ -51,9 +58,20 @@ describe('NR-ARFCN Functions', () => {
         expect(bands).toEqual(expect.arrayContaining([77, 78]))
       }
     })
+
+    test('should return empty array for invalid frequency values', () => {
+      expect(frequencyToNrBands(-1)).toEqual([])
+    })
+
+    test('should return empty array for non-numeric frequency values', () => {
+      expect(frequencyToNrBands('test' as unknown as number)).toEqual([])
+      expect(frequencyToNrBands('' as unknown as number)).toEqual([])
+      expect(frequencyToNrBands(null as unknown as number)).toEqual([])
+      expect(frequencyToNrBands(undefined as unknown as number)).toEqual([])
+    })
   })
 
-  describe('nrArfcnToBand', () => {
+  describe('nrArfcnToBands', () => {
     test('should find correct band for NR-ARFCN 397470', () => {
       const bands = nrArfcnToBands(397470)
       expect(Array.isArray(bands)).toBe(true)
@@ -69,6 +87,13 @@ describe('NR-ARFCN Functions', () => {
     test('should return empty array for invalid NR-ARFCN values', () => {
       expect(nrArfcnToBands(-1)).toEqual([])
       expect(nrArfcnToBands(3300000)).toEqual([])
+    })
+
+    test('should return empty array for non-numeric NR-ARFCN values', () => {
+      expect(nrArfcnToBands('test' as unknown as number)).toEqual([])
+      expect(nrArfcnToBands('' as unknown as number)).toEqual([])
+      expect(nrArfcnToBands(null as unknown as number)).toEqual([])
+      expect(nrArfcnToBands(undefined as unknown as number)).toEqual([])
     })
   })
 
@@ -140,6 +165,13 @@ describe('frequency to NR-ARFCN', () => {
     const nrArfcn = frequencyToNrArfcn(100001)
     expect(nrArfcn).toBe(-1)
   })
+
+  test('should return -1 for non-numeric frequency values', () => {
+    expect(frequencyToNrArfcn('test' as unknown as number)).toBe(-1)
+    expect(frequencyToNrArfcn('' as unknown as number)).toBe(-1)
+    expect(frequencyToNrArfcn(null as unknown as number)).toBe(-1)
+    expect(frequencyToNrArfcn(undefined as unknown as number)).toBe(-1)
+  })
 })
 
 describe('frequency to E-UTRA bands', () => {
@@ -185,6 +217,13 @@ describe('frequency to E-UTRA bands', () => {
       expect(Array.isArray(bands)).toBe(true)
       expect(bands).toEqual([])
     })
+
+    test('should return empty array for non-numeric frequency values', () => {
+      expect(frequencyToEutraBands('test' as unknown as number)).toEqual([])
+      expect(frequencyToEutraBands('' as unknown as number)).toEqual([])
+      expect(frequencyToEutraBands(null as unknown as number)).toEqual([])
+      expect(frequencyToEutraBands(undefined as unknown as number)).toEqual([])
+    })
   })
 })
 
@@ -199,6 +238,13 @@ describe('EARFCN Functions', () => {
     test('should return -1 for invalid EARFCN values', () => {
       expect(earfcnToFrequency(-1)).toEqual(-1)
       expect(earfcnToFrequency(300000)).toEqual(-1)
+    })
+
+    test('should return -1 for non-numeric EARFCN values', () => {
+      expect(earfcnToFrequency('test' as unknown as number)).toEqual(-1)
+      expect(earfcnToFrequency('' as unknown as number)).toEqual(-1)
+      expect(earfcnToFrequency(null as unknown as number)).toEqual(-1)
+      expect(earfcnToFrequency(undefined as unknown as number)).toEqual(-1)
     })
   })
 
@@ -237,6 +283,13 @@ describe('EARFCN Functions', () => {
     test('should return -1 for invalid EARFCN values', () => {
       expect(earfcnToBand(-1)).toEqual(-1)
       expect(earfcnToBand(300000)).toEqual(-1)
+    })
+
+    test('should return -1 for non-numeric EARFCN values', () => {
+      expect(earfcnToBand('test' as unknown as number)).toEqual(-1)
+      expect(earfcnToBand('' as unknown as number)).toEqual(-1)
+      expect(earfcnToBand(null as unknown as number)).toEqual(-1)
+      expect(earfcnToBand(undefined as unknown as number)).toEqual(-1)
     })
   })
 })
