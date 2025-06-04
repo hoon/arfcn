@@ -22,7 +22,15 @@ export type { NrBandRow, NrBandsObj } from './NrBands'
 export { EutraBands } from './EutraBands'
 export type { EutraBandRow, EutraBandsObj } from './EutraBands'
 
-// Export functions from Calculators
+// Export types and constants from UtraFddBands
+export { UtraFddBands } from './UtraFddBands'
+export type { UtraFddBandRow, UtraFddBandsObj } from './UtraFddBands'
+
+// Export types and constants from UtraTddBands
+export { UtraTddBands } from './UtraTddBands'
+export type { UtraTddBandRow, UtraTddBandsObj } from './UtraTddBands'
+
+// Export functions from NrEutraCalculators
 export {
   nrArfcnToFrequency,
   frequencyToNrBands,
@@ -31,4 +39,13 @@ export {
   earfcnToFrequency,
   frequencyToEutraBands,
   earfcnToBand,
-} from './Calculators'
+} from './NrEutraCalculators'
+
+// Export functions from UtraCalculators
+export {
+  uarfcnToBands,
+  uarfcnToFrequencyFdd,
+  uarfcnToFrequencyTdd,
+  frequencyToUarfcnFdd,
+  frequencyToUarfcnTdd,
+} from './UtraCalculators'

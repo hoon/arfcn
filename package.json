@@ -1,6 +1,6 @@
 {
   "name": "arfcn",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Utilities for working with Absolute Radio Frequency Channel Numbers (ARFCN) in cellular networks",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -35,6 +35,14 @@
     "telecommunications",
     "nr-arfcn",
     "earfcn",
+    "umts",
+    "utra",
+    "utra-fdd",
+    "utra-tdd",
+    "w-cdma",
+    "td-cdma",
+    "td-scdma",
+    "uarfcn",
     "3gpp"
   ],
   "author": "Hoon Choi <hoon@orcatown.com>",

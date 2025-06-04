@@ -3638,7 +3638,829 @@ var EutraBands = {
   ]
 };
 
-// src/Calculators.ts
+// src/UtraFddBands.ts
+var UtraFddBands = {
+  table_release_3gpp: 18,
+  table_ts: "TS 25.101 V18.0.0",
+  table_date: "2024-03",
+  table_names: [
+    "Table 5.1: UARFCN definition (general)",
+    "Table 5.1A: UARFCN definition (additional channels)",
+    "Table 5.2: UTRA Absolute Radio Frequency Channel Number"
+  ],
+  rows: [
+    {
+      band: 1,
+      f_ul_offset: 0,
+      f_ul_lo: 1922.4,
+      f_ul_hi: 1977.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 0,
+      f_dl_lo: 2112.4,
+      f_dl_hi: 2167.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 9612,
+      n_ul_hi: 9888,
+      n_ul_xtra: null,
+      n_dl_lo: 10562,
+      n_dl_hi: 10838,
+      n_dl_xtra: null
+    },
+    {
+      band: 2,
+      f_ul_offset: 0,
+      f_ul_lo: 1852.4,
+      f_ul_hi: 1907.6,
+      f_ul_xtra_offset: 1850.1,
+      f_ul_xtra: [
+        1852.5,
+        1857.5,
+        1862.5,
+        1867.5,
+        1872.5,
+        1877.5,
+        1882.5,
+        1887.5,
+        1892.5,
+        1897.5,
+        1902.5,
+        1907.5
+      ],
+      f_dl_offset: 0,
+      f_dl_lo: 1932.4,
+      f_dl_hi: 1987.6,
+      f_dl_xtra_offset: 1850.1,
+      f_dl_xtra: [
+        1932.5,
+        1937.5,
+        1942.5,
+        1947.5,
+        1952.5,
+        1957.5,
+        1962.5,
+        1967.5,
+        1972.5,
+        1977.5,
+        1982.5,
+        1987.5
+      ],
+      n_ul_lo: 9262,
+      n_ul_hi: 9538,
+      n_ul_xtra: [12, 37, 62, 87, 112, 137, 162, 187, 212, 237, 262, 287],
+      n_dl_lo: 9662,
+      n_dl_hi: 9938,
+      n_dl_xtra: [412, 437, 462, 487, 512, 537, 562, 587, 612, 637, 662, 687]
+    },
+    {
+      band: 3,
+      f_ul_offset: 1525,
+      f_ul_lo: 1712.4,
+      f_ul_hi: 1782.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 1575,
+      f_dl_lo: 1807.4,
+      f_dl_hi: 1877.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 937,
+      n_ul_hi: 1288,
+      n_ul_xtra: null,
+      n_dl_lo: 1162,
+      n_dl_hi: 1513,
+      n_dl_xtra: null
+    },
+    {
+      band: 4,
+      f_ul_offset: 1450,
+      f_ul_lo: 1712.4,
+      f_ul_hi: 1752.6,
+      f_ul_xtra_offset: 1380.1,
+      f_ul_xtra: [
+        1712.5,
+        1717.5,
+        1722.5,
+        1727.5,
+        1732.5,
+        1737.5,
+        1747.5,
+        1752.5
+      ],
+      f_dl_offset: 1805,
+      f_dl_lo: 2112.4,
+      f_dl_hi: 2152.6,
+      f_dl_xtra_offset: 1735.1,
+      f_dl_xtra: [
+        2112.5,
+        2117.5,
+        2122.5,
+        2127.5,
+        2132.5,
+        2137.5,
+        2142.5,
+        2147.5,
+        2152.5
+      ],
+      n_ul_lo: 1312,
+      n_ul_hi: 1513,
+      n_ul_xtra: [1662, 1687, 1712, 1737, 1762, 1787, 1812, 1837, 1862],
+      n_dl_lo: 1537,
+      n_dl_hi: 1738,
+      n_dl_xtra: [1887, 1912, 1937, 1962, 1987, 2012, 2037, 2062, 2087]
+    },
+    {
+      band: 5,
+      f_ul_offset: 0,
+      f_ul_lo: 826.4,
+      f_ul_hi: 846.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 0,
+      f_dl_lo: 871.4,
+      f_dl_hi: 891.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 4132,
+      n_ul_hi: 4233,
+      n_ul_xtra: [782, 787, 807, 812, 837, 862],
+      n_dl_lo: 4357,
+      n_dl_hi: 4458,
+      n_dl_xtra: [1007, 1012, 1032, 1037, 1062, 1087]
+    },
+    {
+      band: 6,
+      f_ul_offset: 0,
+      f_ul_lo: 832.4,
+      f_ul_hi: 837.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 0,
+      f_dl_lo: 877.4,
+      f_dl_hi: 882.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 4162,
+      n_ul_hi: 4188,
+      n_ul_xtra: [812, 837],
+      n_dl_lo: 4387,
+      n_dl_hi: 4413,
+      n_dl_xtra: [1037, 1062]
+    },
+    {
+      band: 7,
+      f_ul_offset: 2100,
+      f_ul_lo: 2502.4,
+      f_ul_hi: 2567.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 2175,
+      f_dl_lo: 2622.4,
+      f_dl_hi: 2687.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 2012,
+      n_ul_hi: 2338,
+      n_ul_xtra: [
+        2362,
+        2387,
+        2412,
+        2437,
+        2462,
+        2487,
+        2512,
+        2537,
+        2562,
+        2587,
+        2612,
+        2637,
+        2662,
+        2687
+      ],
+      n_dl_lo: 2237,
+      n_dl_hi: 2563,
+      n_dl_xtra: [
+        2587,
+        2612,
+        2637,
+        2662,
+        2687,
+        2712,
+        2737,
+        2762,
+        2787,
+        2812,
+        2837,
+        2862,
+        2887,
+        2912
+      ]
+    },
+    {
+      band: 8,
+      f_ul_offset: 340,
+      f_ul_lo: 882.4,
+      f_ul_hi: 912.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 340,
+      f_dl_lo: 927.4,
+      f_dl_hi: 957.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 2712,
+      n_ul_hi: 2863,
+      n_ul_xtra: null,
+      n_dl_lo: 2937,
+      n_dl_hi: 3088,
+      n_dl_xtra: null
+    },
+    {
+      band: 9,
+      f_ul_offset: 0,
+      f_ul_lo: 1752.4,
+      f_ul_hi: 1782.4,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 0,
+      f_dl_lo: 1847.4,
+      f_dl_hi: 1877.4,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 8762,
+      n_ul_hi: 8912,
+      n_ul_xtra: null,
+      n_dl_lo: 9237,
+      n_dl_hi: 9387,
+      n_dl_xtra: null
+    },
+    {
+      band: 10,
+      f_ul_offset: 1135,
+      f_ul_lo: 1712.4,
+      f_ul_hi: 1767.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 1490,
+      f_dl_lo: 2112.4,
+      f_dl_hi: 2167.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 2887,
+      n_ul_hi: 3163,
+      n_ul_xtra: [
+        3187,
+        3212,
+        3237,
+        3262,
+        3287,
+        3312,
+        3337,
+        3362,
+        3387,
+        3412,
+        3437,
+        3462
+      ],
+      n_dl_lo: 3112,
+      n_dl_hi: 3388,
+      n_dl_xtra: [
+        3412,
+        3437,
+        3462,
+        3487,
+        3512,
+        3537,
+        3562,
+        3587,
+        3612,
+        3637,
+        3662,
+        3687
+      ]
+    },
+    {
+      band: 11,
+      f_ul_offset: 733,
+      f_ul_lo: 1430.4,
+      f_ul_hi: 1445.4,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 736,
+      f_dl_lo: 1478.4,
+      f_dl_hi: 1493.4,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 3487,
+      n_ul_hi: 3562,
+      n_ul_xtra: null,
+      n_dl_lo: 3712,
+      n_dl_hi: 3787,
+      n_dl_xtra: null
+    },
+    {
+      band: 12,
+      f_ul_offset: -22,
+      f_ul_lo: 701.4,
+      f_ul_hi: 713.6,
+      f_ul_xtra_offset: -39.9,
+      f_ul_xtra: [701.5, 706.5, 707.5, 712.5, 713.5],
+      f_dl_offset: -37,
+      f_dl_lo: 731.4,
+      f_dl_hi: 743.6,
+      f_dl_xtra_offset: -54.9,
+      f_dl_xtra: [731.5, 736.5, 737.5, 742.5, 743.5],
+      n_ul_lo: 3617,
+      n_ul_hi: 3678,
+      n_ul_xtra: [3707, 3732, 3737, 3762, 3767],
+      n_dl_lo: 3842,
+      n_dl_hi: 3903,
+      n_dl_xtra: [3932, 3957, 3962, 3987, 3992]
+    },
+    {
+      band: 13,
+      f_ul_offset: 21,
+      f_ul_lo: 779.4,
+      f_ul_hi: 784.6,
+      f_ul_xtra_offset: 11.1,
+      f_ul_xtra: [779.5, 784.5],
+      f_dl_offset: -55,
+      f_dl_lo: 748.4,
+      f_dl_hi: 753.6,
+      f_dl_xtra_offset: -64.9,
+      f_dl_xtra: [748.5, 753.5],
+      n_ul_lo: 3792,
+      n_ul_hi: 3818,
+      n_ul_xtra: [3842, 3867],
+      n_dl_lo: 4017,
+      n_dl_hi: 4043,
+      n_dl_xtra: [4067, 4092]
+    },
+    {
+      band: 14,
+      f_ul_offset: 12,
+      f_ul_lo: 790.4,
+      f_ul_hi: 795.6,
+      f_ul_xtra_offset: 2.1,
+      f_ul_xtra: [790.5, 795.5],
+      f_dl_offset: -63,
+      f_dl_lo: 760.4,
+      f_dl_hi: 765.6,
+      f_dl_xtra_offset: -72.9,
+      f_dl_xtra: [760.5, 765.5],
+      n_ul_lo: 3892,
+      n_ul_hi: 3918,
+      n_ul_xtra: [3942, 3967],
+      n_dl_lo: 4117,
+      n_dl_hi: 4143,
+      n_dl_xtra: [4167, 4192]
+    },
+    {
+      band: 19,
+      f_ul_offset: 770,
+      f_ul_lo: 832.4,
+      f_ul_hi: 842.6,
+      f_ul_xtra_offset: 755.1,
+      f_ul_xtra: [832.5, 837.5, 842.5],
+      f_dl_offset: 735,
+      f_dl_lo: 877.4,
+      f_dl_hi: 887.6,
+      f_dl_xtra_offset: 720.1,
+      f_dl_xtra: [877.5, 882.5, 887.5],
+      n_ul_lo: 312,
+      n_ul_hi: 363,
+      n_ul_xtra: [387, 412, 437],
+      n_dl_lo: 712,
+      n_dl_hi: 763,
+      n_dl_xtra: [787, 812, 837]
+    },
+    {
+      band: 20,
+      f_ul_offset: -23,
+      f_ul_lo: 834.4,
+      f_ul_hi: 859.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: -109,
+      f_dl_lo: 793.4,
+      f_dl_hi: 818.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 4287,
+      n_ul_hi: 4413,
+      n_ul_xtra: null,
+      n_dl_lo: 4512,
+      n_dl_hi: 4638,
+      n_dl_xtra: null
+    },
+    {
+      band: 21,
+      f_ul_offset: 1358,
+      f_ul_lo: 1450.4,
+      f_ul_hi: 1460.4,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 1326,
+      f_dl_lo: 1498.4,
+      f_dl_hi: 1508.4,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 462,
+      n_ul_hi: 512,
+      n_ul_xtra: null,
+      n_dl_lo: 862,
+      n_dl_hi: 912,
+      n_dl_xtra: null
+    },
+    {
+      band: 22,
+      f_ul_offset: 2525,
+      f_ul_lo: 3412.4,
+      f_ul_hi: 3487.6,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 2580,
+      f_dl_lo: 3512.4,
+      f_dl_hi: 3587.6,
+      f_dl_xtra_offset: null,
+      f_dl_xtra: null,
+      n_ul_lo: 4437,
+      n_ul_hi: 4813,
+      n_ul_xtra: null,
+      n_dl_lo: 4662,
+      n_dl_hi: 5038,
+      n_dl_xtra: null
+    },
+    {
+      band: 25,
+      f_ul_offset: 875,
+      f_ul_lo: 1852.4,
+      f_ul_hi: 1912.6,
+      f_ul_xtra_offset: 639.1,
+      f_ul_xtra: [
+        1852.5,
+        1857.5,
+        1862.5,
+        1867.5,
+        1872.5,
+        1877.5,
+        1882.5,
+        1887.5,
+        1892.5,
+        1897.5,
+        1902.5,
+        1907.5,
+        1912.5
+      ],
+      f_dl_offset: 910,
+      f_dl_lo: 1932.4,
+      f_dl_hi: 1992.6,
+      f_dl_xtra_offset: 674.1,
+      f_dl_xtra: [
+        1932.5,
+        1937.5,
+        1942.5,
+        1947.5,
+        1952.5,
+        1957.5,
+        1962.5,
+        1967.5,
+        1972.5,
+        1977.5,
+        1982.5,
+        1987.5,
+        1992.5
+      ],
+      n_ul_lo: 4887,
+      n_ul_hi: 5188,
+      n_ul_xtra: [
+        6067,
+        6092,
+        6117,
+        6142,
+        6167,
+        6192,
+        6217,
+        6242,
+        6267,
+        6292,
+        6317,
+        6342,
+        6367
+      ],
+      n_dl_lo: 5112,
+      n_dl_hi: 5413,
+      n_dl_xtra: [
+        6292,
+        6317,
+        6342,
+        6367,
+        6392,
+        6417,
+        6442,
+        6467,
+        6492,
+        6517,
+        6542,
+        6567,
+        6592
+      ]
+    },
+    {
+      band: 26,
+      f_ul_offset: -291,
+      f_ul_lo: 816.4,
+      f_ul_hi: 846.6,
+      f_ul_xtra_offset: -325.9,
+      f_ul_xtra: [
+        816.5,
+        821.5,
+        826.5,
+        827.5,
+        831.5,
+        832.5,
+        836.5,
+        837.5,
+        841.5,
+        842.5,
+        846.5
+      ],
+      f_dl_offset: -291,
+      f_dl_lo: 861.4,
+      f_dl_hi: 891.6,
+      f_dl_xtra_offset: -325.9,
+      f_dl_xtra: [
+        861.5,
+        866.5,
+        871.5,
+        872.5,
+        876.5,
+        877.5,
+        881.5,
+        882.5,
+        886,
+        5,
+        887.5,
+        891.5
+      ],
+      n_ul_lo: 5537,
+      n_ul_hi: 5688,
+      n_ul_xtra: [
+        5712,
+        5737,
+        5762,
+        5767,
+        5787,
+        5792,
+        5812,
+        5817,
+        5837,
+        5842,
+        5862
+      ],
+      n_dl_lo: 5762,
+      n_dl_hi: 5913,
+      n_dl_xtra: [
+        5937,
+        5962,
+        5987,
+        5992,
+        6012,
+        6017,
+        6037,
+        6042,
+        6062,
+        6067,
+        6087
+      ]
+    },
+    {
+      band: 32,
+      f_ul_offset: null,
+      f_ul_lo: null,
+      f_ul_hi: null,
+      f_ul_xtra_offset: null,
+      f_ul_xtra: null,
+      f_dl_offset: 131,
+      f_dl_lo: 1454.4,
+      f_dl_hi: 1493.6,
+      f_dl_xtra_offset: 87.1,
+      f_dl_xtra: [
+        1454.5,
+        1459.5,
+        1464.5,
+        1469.5,
+        1474.5,
+        1479.5,
+        1484.5,
+        1489.5
+      ],
+      n_ul_lo: null,
+      n_ul_hi: null,
+      n_ul_xtra: null,
+      n_dl_lo: 6617,
+      n_dl_hi: 6813,
+      n_dl_xtra: [6837, 6862, 6887, 6912, 6937, 6962, 6987, 7012]
+    }
+  ]
+};
+
+// src/UtraTddBands.ts
+var UtraTddBands = {
+  table_release_3gpp: 18,
+  table_ts: "3GPP TS 25.102 V18.0.0",
+  table_date: "2024-03",
+  table_names: [
+    "5.4.4.1 3.84 Mcps TDD Option",
+    "5.4.4.2 1.28 Mcps TDD Option",
+    "5.4.4.3 7.68 Mcps TDD Option"
+  ],
+  rows: [
+    {
+      band: "a",
+      mcps: 3.84,
+      f_lo: 1900,
+      f_hi: 1920,
+      n_lo: 9512,
+      n_hi: 9588,
+      n_xtra: null
+    },
+    {
+      band: "a",
+      mcps: 3.84,
+      f_lo: 2010,
+      f_hi: 2025,
+      n_lo: 10062,
+      n_hi: 10113,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 3.84,
+      f_lo: 1850,
+      f_hi: 1910,
+      n_lo: 9262,
+      n_hi: 9538,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 3.84,
+      f_lo: 1930,
+      f_hi: 1990,
+      n_lo: 9662,
+      n_hi: 9938,
+      n_xtra: null
+    },
+    {
+      band: "c",
+      mcps: 3.84,
+      f_lo: 1910,
+      f_hi: 1930,
+      n_lo: 9562,
+      n_hi: 9638,
+      n_xtra: null
+    },
+    {
+      band: "d",
+      mcps: 3.84,
+      f_lo: 2570,
+      f_hi: 2620,
+      n_lo: 12862,
+      n_hi: 13088,
+      n_xtra: [2112, 2137, 2162, 2187, 2212, 2237, 2262, 2287, 2312, 2337]
+    },
+    {
+      band: "a",
+      mcps: 1.28,
+      f_lo: 1900,
+      f_hi: 1920,
+      n_lo: 9504,
+      n_hi: 9596,
+      n_xtra: null
+    },
+    {
+      band: "a",
+      mcps: 1.28,
+      f_lo: 2010,
+      f_hi: 2025,
+      n_lo: 10054,
+      n_hi: 10121,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 1.28,
+      f_lo: 1850,
+      f_hi: 1910,
+      n_lo: 9254,
+      n_hi: 9546,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 1.28,
+      f_lo: 1930,
+      f_hi: 1990,
+      n_lo: 9654,
+      n_hi: 9946,
+      n_xtra: null
+    },
+    {
+      band: "c",
+      mcps: 1.28,
+      f_lo: 1910,
+      f_hi: 1930,
+      n_lo: 9554,
+      n_hi: 9646,
+      n_xtra: null
+    },
+    {
+      band: "d",
+      mcps: 1.28,
+      f_lo: 2570,
+      f_hi: 2620,
+      n_lo: 12854,
+      n_hi: 13096,
+      n_xtra: null
+    },
+    {
+      band: "e",
+      mcps: 1.28,
+      f_lo: 2300,
+      f_hi: 2400,
+      n_lo: 11504,
+      n_hi: 11996,
+      n_xtra: null
+    },
+    {
+      band: "f",
+      mcps: 1.28,
+      f_lo: 1880,
+      f_hi: 1920,
+      n_lo: 9404,
+      n_hi: 9596,
+      n_xtra: null
+    },
+    {
+      band: "a",
+      mcps: 7.68,
+      f_lo: 1900,
+      f_hi: 1920,
+      n_lo: 9512,
+      n_hi: 9588,
+      n_xtra: null
+    },
+    {
+      band: "a",
+      mcps: 7.68,
+      f_lo: 2010,
+      f_hi: 2025,
+      n_lo: 10062,
+      n_hi: 10113,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 7.68,
+      f_lo: 1850,
+      f_hi: 1910,
+      n_lo: 9262,
+      n_hi: 9538,
+      n_xtra: null
+    },
+    {
+      band: "b",
+      mcps: 7.68,
+      f_lo: 1930,
+      f_hi: 1990,
+      n_lo: 9662,
+      n_hi: 9938,
+      n_xtra: null
+    },
+    {
+      band: "c",
+      mcps: 7.68,
+      f_lo: 1910,
+      f_hi: 1930,
+      n_lo: 9562,
+      n_hi: 9638,
+      n_xtra: null
+    },
+    {
+      band: "d",
+      mcps: 7.68,
+      f_lo: 2570,
+      f_hi: 2620,
+      n_lo: 12874,
+      n_hi: 13076,
+      n_xtra: null
+    }
+  ]
+};
+
+// src/NrEutraCalculators.ts
 function nrArfcnToFrequency(nrArfcn) {
   if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
     return -1;
@@ -3756,16 +4578,197 @@ function earfcnToBand(earfcn) {
   }
   return -1;
 }
+
+// src/UtraCalculators.ts
+function _fddUlXtraUarfcnToBands(uarfcn) {
+  return UtraFddBands.rows.filter((_r) => {
+    return _r.n_ul_xtra?.includes(uarfcn);
+  });
+}
+function _fddDlXtraUarfcnToBands(uarfcn) {
+  return UtraFddBands.rows.filter((_r) => {
+    return _r.n_dl_xtra?.includes(uarfcn);
+  });
+}
+function _fddUlGeneralUarfcnToBands(uarfcn) {
+  return UtraFddBands.rows.filter((_r) => {
+    return _r.n_ul_lo !== null && _r.n_ul_hi !== null && uarfcn >= _r.n_ul_lo && uarfcn <= _r.n_ul_hi;
+  });
+}
+function _fddDlGeneralUarfcnToBands(uarfcn) {
+  return UtraFddBands.rows.filter((_r) => {
+    return _r.n_dl_lo !== null && _r.n_dl_hi !== null && uarfcn >= _r.n_dl_lo && uarfcn <= _r.n_dl_hi;
+  });
+}
+function _tddXtraUarfcnToBands(uarfcn) {
+  return UtraTddBands.rows.filter((_r) => {
+    return _r.n_xtra?.includes(uarfcn);
+  });
+}
+function _tddGeneralUarfcnToBands(uarfcn) {
+  return UtraTddBands.rows.filter((_r) => {
+    return _r.n_lo !== null && _r.n_hi !== null && uarfcn >= _r.n_lo && uarfcn <= _r.n_hi;
+  });
+}
+function _uarfcnBandSort(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    return a - b;
+  } else if (typeof a === "number") {
+    return -1;
+  } else if (typeof b === "number") {
+    return 1;
+  }
+  return a.localeCompare(b);
+}
+function uarfcnToBands(uarfcn, searchOptions = {
+  direction: 2 /* Unspecified */,
+  duplexMode: "All",
+  channelType: "All"
+}) {
+  if (!Number.isFinite(uarfcn) || uarfcn < 0) {
+    return [];
+  }
+  const so = {
+    direction: searchOptions.direction ?? 2 /* Unspecified */,
+    duplexMode: searchOptions.duplexMode ?? "All",
+    channelType: searchOptions.channelType ?? "All"
+  };
+  let results = [];
+  if (so.duplexMode === "FDD" || so.duplexMode === "All") {
+    if (so.direction === 1 /* Uplink */ || so.direction === 2 /* Unspecified */) {
+      if (so.channelType === "Additional" || so.channelType === "All") {
+        const bands = _fddUlXtraUarfcnToBands(uarfcn);
+        if (bands.length > 0) {
+          results.push(...bands.map((_r) => _r.band));
+        }
+      }
+      if (so.channelType === "General" || so.channelType === "All") {
+        const bands = _fddUlGeneralUarfcnToBands(uarfcn);
+        if (bands.length > 0) {
+          results.push(...bands.map((_r) => _r.band));
+        }
+      }
+    }
+    if (so.direction === 0 /* Downlink */ || so.direction === 2 /* Unspecified */) {
+      if (so.channelType === "Additional" || so.channelType === "All") {
+        const bands = _fddDlXtraUarfcnToBands(uarfcn);
+        if (bands.length > 0) {
+          results.push(...bands.map((_r) => _r.band));
+        }
+      }
+      if (so.channelType === "General" || so.channelType === "All") {
+        const bands = _fddDlGeneralUarfcnToBands(uarfcn);
+        if (bands.length > 0) {
+          results.push(...bands.map((_r) => _r.band));
+        }
+      }
+    }
+  }
+  if (so.duplexMode === "TDD" || so.duplexMode === "All") {
+    if (so.channelType === "Additional" || so.channelType === "All") {
+      const bands = _tddXtraUarfcnToBands(uarfcn);
+      if (bands.length > 0) {
+        results.push(...bands.map((_r) => _r.band));
+      }
+    }
+    if (so.channelType === "General" || so.channelType === "All") {
+      const bands = _tddGeneralUarfcnToBands(uarfcn);
+      if (bands.length > 0) {
+        results.push(...bands.map((_r) => _r.band));
+      }
+    }
+  }
+  return Array.from(new Set(results)).sort(_uarfcnBandSort);
+}
+function uarfcnToFrequencyFdd(uarfcn, band, channelType) {
+  if (!Number.isFinite(uarfcn) || uarfcn < 0) {
+    return -1;
+  }
+  const rows = UtraFddBands.rows.filter((_r) => {
+    return _r.band === band;
+  });
+  if (rows.length === 1) {
+    const row = rows[0];
+    if (channelType === "General") {
+      if (uarfcn >= row.n_dl_lo && uarfcn <= row.n_dl_hi) {
+        return uarfcn / 5 + row.f_dl_offset;
+      }
+      if (row.n_ul_lo !== null && row.n_ul_hi !== null && row.f_ul_offset !== null && uarfcn >= row.n_ul_lo && uarfcn <= row.n_ul_hi) {
+        return uarfcn / 5 + row.f_ul_offset;
+      }
+    } else if (channelType === "Additional") {
+      if (row.n_dl_xtra && row.f_dl_xtra_offset !== null && row.n_dl_xtra.includes(uarfcn)) {
+        return uarfcn / 5 + row.f_dl_xtra_offset;
+      } else if (row.n_ul_xtra && row.f_ul_xtra_offset !== null && row.n_ul_xtra.includes(uarfcn)) {
+        return uarfcn / 5 + row.f_ul_xtra_offset;
+      }
+    }
+  }
+  return -1;
+}
+function uarfcnToFrequencyTdd(uarfcn, channelType) {
+  if (channelType === "General") {
+    return uarfcn / 5;
+  } else if (channelType === "Additional") {
+    return uarfcn / 5 + 2150.1;
+  }
+  return -1;
+}
+function frequencyToUarfcnFdd(frequencyMhz, band) {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0) {
+    return -1;
+  }
+  const isXtra = frequencyMhz * 10 % 2 === 1;
+  const rows = UtraFddBands.rows.filter((_r) => {
+    return _r.band === band;
+  });
+  if (rows.length !== 1) {
+    return -1;
+  }
+  const row = rows[0];
+  if (isXtra) {
+    if (row.f_dl_xtra_offset !== null && row.f_dl_xtra !== null && row.f_dl_xtra.includes(frequencyMhz)) {
+      return Math.round(5 * (frequencyMhz - row.f_dl_xtra_offset) * 10) / 10;
+    } else if (row.f_ul_xtra_offset !== null && row.f_ul_xtra !== null && row.f_ul_xtra.includes(frequencyMhz)) {
+      return Math.round(5 * (frequencyMhz - row.f_ul_xtra_offset) * 10) / 10;
+    }
+  } else {
+    if (frequencyMhz >= row.f_dl_lo && frequencyMhz <= row.f_dl_hi) {
+      return Math.round(5 * (frequencyMhz - row.f_dl_offset) * 10) / 10;
+    }
+    if (row.f_ul_lo !== null && row.f_ul_hi !== null && row.f_ul_offset !== null && frequencyMhz >= row.f_ul_lo && frequencyMhz <= row.f_ul_hi) {
+      return Math.round(5 * (frequencyMhz - row.f_ul_offset) * 10) / 10;
+    }
+  }
+  return -1;
+}
+function frequencyToUarfcnTdd(frequencyMhz) {
+  if (!Number.isFinite(frequencyMhz) || frequencyMhz < 0) {
+    return -1;
+  }
+  const isXtra = frequencyMhz * 10 % 2 === 1;
+  if (isXtra) {
+    return Math.round(5 * (frequencyMhz - 2150.1) * 10) / 10;
+  }
+  return Math.round(5 * frequencyMhz * 10) / 10;
+}
 export {
   EutraBands,
   NrArfcnBands,
   NrArfcnParameters,
   NrBands,
+  UtraFddBands,
+  UtraTddBands,
   earfcnToBand,
   earfcnToFrequency,
   frequencyToEutraBands,
   frequencyToNrArfcn,
   frequencyToNrBands,
+  frequencyToUarfcnFdd,
+  frequencyToUarfcnTdd,
   nrArfcnToBands,
-  nrArfcnToFrequency
+  nrArfcnToFrequency,
+  uarfcnToBands,
+  uarfcnToFrequencyFdd,
+  uarfcnToFrequencyTdd
 };

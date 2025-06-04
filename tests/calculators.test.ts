@@ -7,7 +7,7 @@ import {
   frequencyToEutraBands,
   LinkDirection,
   frequencyToNrArfcn,
-} from '../src/Calculators'
+} from '../src/NrEutraCalculators'
 
 describe('NR-ARFCN Functions', () => {
   describe('nrArfcnToFrequency', () => {
