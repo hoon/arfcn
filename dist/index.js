@@ -4461,6 +4461,12 @@ var UtraTddBands = {
 };
 
 // src/NrEutraCalculators.ts
+var LinkDirection = /* @__PURE__ */ ((LinkDirection2) => {
+  LinkDirection2[LinkDirection2["Downlink"] = 0] = "Downlink";
+  LinkDirection2[LinkDirection2["Uplink"] = 1] = "Uplink";
+  LinkDirection2[LinkDirection2["Unspecified"] = 2] = "Unspecified";
+  return LinkDirection2;
+})(LinkDirection || {});
 function nrArfcnToFrequency(nrArfcn) {
   if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
     return -1;
@@ -4754,6 +4760,7 @@ function frequencyToUarfcnTdd(frequencyMhz) {
 }
 export {
   EutraBands,
+  LinkDirection,
   NrArfcnBands,
   NrArfcnParameters,
   NrBands,

@@ -21,6 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   EutraBands: () => EutraBands,
+  LinkDirection: () => LinkDirection,
   NrArfcnBands: () => NrArfcnBands,
   NrArfcnParameters: () => NrArfcnParameters,
   NrBands: () => NrBands,
@@ -4504,6 +4505,12 @@ var UtraTddBands = {
 };
 
 // src/NrEutraCalculators.ts
+var LinkDirection = /* @__PURE__ */ ((LinkDirection2) => {
+  LinkDirection2[LinkDirection2["Downlink"] = 0] = "Downlink";
+  LinkDirection2[LinkDirection2["Uplink"] = 1] = "Uplink";
+  LinkDirection2[LinkDirection2["Unspecified"] = 2] = "Unspecified";
+  return LinkDirection2;
+})(LinkDirection || {});
 function nrArfcnToFrequency(nrArfcn) {
   if (!Number.isFinite(nrArfcn) || nrArfcn < 0 || nrArfcn > 3279165) {
     return -1;
@@ -4798,6 +4805,7 @@ function frequencyToUarfcnTdd(frequencyMhz) {
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   EutraBands,
+  LinkDirection,
   NrArfcnBands,
   NrArfcnParameters,
   NrBands,
