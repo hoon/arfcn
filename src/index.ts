@@ -6,6 +6,8 @@
  * frequencies and bands for both NR (5G) and EUTRA (4G LTE) technologies.
  */
 
+import type { LinkDirection } from './NrEutraCalculators'
+
 // Export types and constants from NrArfcn
 export { NrArfcnBands } from './NrArfcnBands'
 export type { NrArfcnBandRow, NrArfcnBandsObj } from './NrArfcnBands'
@@ -39,6 +41,7 @@ export {
   earfcnToFrequency,
   frequencyToEutraBands,
   earfcnToBand,
+  LinkDirection,
 } from './NrEutraCalculators'
 
 // Export functions from UtraCalculators
